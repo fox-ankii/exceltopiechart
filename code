@@ -1,0 +1,31 @@
+from tabula import read_pdf
+from tabula import convert_into
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+
+#df= read_pdf("tabuladata.pdf",)
+
+#print(df)
+    
+#convert_into("tabuladata.pdf","tabuladata.csv",output_format="csv")
+
+
+csv_file='tabuladata.csv'
+data = pd.read_csv(csv_file)
+
+Item = data["Item"]
+Price = data["Price"]
+
+x=[]
+y=[]
+
+x=list(Item)
+y=list(Price)
+#f=plt.figure()
+fig1, ax1 = plt.subplots()
+plt.pie(y,labels=x,autopct='%.2f%%')
+ax1.axis('equal')
+plt.show()
+plt.savefig("ankit.pdf")
